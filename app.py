@@ -85,7 +85,7 @@ def generate_response_with_groq(context, query):
         return f"Error generating response with Groq: {str(e)}"
 
 # Load embedding model
-model = SentenceTransformer('paraphrase-MiniLM-L3-v2')  # Pre-trained model for embeddings
+# model = SentenceTransformer('paraphrase-MiniLM-L3-v2')  # Pre-trained model for embeddings
 
 # API endpoint for processing user queries
 @app.route('/chat', methods=['POST'])
