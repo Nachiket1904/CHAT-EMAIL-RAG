@@ -7,8 +7,8 @@ from groq import Groq
 import random
 import os
 from dotenv import load_dotenv
-from sentence_transformers import SentenceTransformer
-
+# from sentence_transformers import SentenceTransformer
+from embed import generate_query_embedding
 # Load environment variables
 load_dotenv()
 
@@ -100,7 +100,9 @@ def chat():
 
         # **Embedding-Based Search Query**
         # Generate query embedding
-        query_embedding = model.encode([query], convert_to_numpy=True)
+        # Generate query embedding
+        query_embedding = generate_query_embedding(query)
+        # query_embedding = model.encode([query], convert_to_numpy=True)
 
         # Retrieve top results from FAISS
         results = query_index(query_embedding)
